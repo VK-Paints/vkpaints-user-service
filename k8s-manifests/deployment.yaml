@@ -1,4 +1,4 @@
-﻿apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: user-deploy
@@ -34,8 +34,8 @@ spec:
         envFrom:
         - configMapRef:
             name: user-config
-        # - secretRef:
-        #     name: user-service-secret
+        - secretRef:
+            name: user-service-secret
         livenessProbe:
           httpGet:
             path: /health
@@ -50,5 +50,5 @@ spec:
           periodSeconds: 10
 
         ports:
-        - containerPort: 3000
+        - containerPort: 3001
 
